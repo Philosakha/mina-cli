@@ -10,6 +10,7 @@ const availableOptions: string[] = [
   "create-frontend",
   "check-balance",
   "check-transactions",
+  "check-tokens",
 ];
 
 // second argument should be the selected option
@@ -38,5 +39,8 @@ switch (option) {
     break;
   case "check-transactions":
     console.log(chalk.green("Checking transactions..."));
+    break;
+  case "check-tokens":
+    console.log(chalk.green("Checking tokens..."));
     break;
 }

@@ -10,7 +10,7 @@
     "build": "npx tsc"
   },
   "keywords": [],
-  "author": "",
+  "author": "Harsh Ghodkar",
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.2.0",
