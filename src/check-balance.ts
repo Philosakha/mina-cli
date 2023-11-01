@@ -1,20 +1,23 @@
-// var options = {
-//   method: "GET",
-//   url: "https://api.minaexplorer.com/accounts/{public_key}",
-//   headers: {},
-//   body: "{}",
-// };
-
-// request(options, function (error, response, body) {
-//   if (error) throw new Error(error);
-
-//   console.log(body);
-// });
-
 import chalk from "chalk";
 
 // @ts-ignore
 import inquirer from "inquirer";
+
+interface minaData {
+  account: {
+    publicKey: String;
+    balance: {
+      total: Number;
+      lockedBalnce: Number;
+      blockHeight: Number;
+      unknown: Number;
+    };
+  };
+  status: {
+    syncStatus: String;
+    blockchainLength: Number;
+  };
+}
 
 export default async function checkBalance() {
   const questions = [
@@ -29,12 +32,25 @@ export default async function checkBalance() {
 
   console.log(chalk.green(`Checking balance for ${answers.publicKey}...`));
 
-  var options = {
-    method: "GET",
-    url: `https://api.minaexplorer.com/accounts/${answers.publicKey}`,
-    headers: {},
-    body: "{}",
+  let headersList = {
+    Accept: "*/*",
   };
 
-  fetch(options.url);
+  let response = await fetch(
+    "https://api.minaexplorer.com/accounts/" + answers.publicKey,
+    {
+      method: "GET",
+      headers: headersList,
+    }
+  );
+
+  let data = await response.text();
+  //   console.log(data);
+
+  let dataJSON = JSON.parse(data) as minaData;
+  let balance = Number(dataJSON.account.balance.total) / 1000000000;
+
+  console.log(
+    chalk.green(`Balance for ${answers.publicKey} is ${balance} Mina`)
+  );
 }

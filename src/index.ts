@@ -5,6 +5,7 @@ import chalk from "chalk";
 // const figlet = require('figlet');
 import figlet from "figlet";
 import createFrontend from "./creating-frontend";
+import checkBalance from "./check-balance";
 
 const availableOptions: string[] = [
   "create-frontend",
@@ -36,6 +37,7 @@ switch (option) {
     break;
   case "check-balance":
     console.log(chalk.green("Checking balance..."));
+    checkBalance();
     break;
   case "check-transactions":
     console.log(chalk.green("Checking transactions..."));
