@@ -3,7 +3,7 @@ import chalk from "chalk";
 // @ts-ignore
 import inquirer from "inquirer";
 
-interface minaData {
+interface minaAccountsData {
   account: {
     publicKey: String;
     balance: {
@@ -47,7 +47,7 @@ export default async function checkBalance() {
   let data = await response.text();
   //   console.log(data);
 
-  let dataJSON = JSON.parse(data) as minaData;
+  let dataJSON = JSON.parse(data) as minaAccountsData;
   let balance = Number(dataJSON.account.balance.total) / 1000000000;
 
   console.log(

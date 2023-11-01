@@ -6,11 +6,12 @@ import chalk from "chalk";
 import figlet from "figlet";
 import createFrontend from "./creating-frontend";
 import checkBalance from "./check-balance";
+import checkMina from "./check-mina";
 
 const availableOptions: string[] = [
   "create-frontend",
   "check-balance",
-  "check-transactions",
+  "check-mina",
   "check-tokens",
 ];
 
@@ -39,8 +40,9 @@ switch (option) {
     console.log(chalk.green("Checking balance..."));
     checkBalance();
     break;
-  case "check-transactions":
-    console.log(chalk.green("Checking transactions..."));
+  case "check-mina":
+    console.log(chalk.green("Checking on Mina..."));
+    checkMina();
     break;
   case "check-tokens":
     console.log(chalk.green("Checking tokens..."));
