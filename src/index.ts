@@ -44,7 +44,4 @@ switch (option) {
     console.log(chalk.green("Checking on Mina..."));
     checkMina();
     break;
-  case "check-tokens":
-    console.log(chalk.green("Checking tokens..."));
-    break;
 }
