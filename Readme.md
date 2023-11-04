@@ -9,7 +9,7 @@ The Maya CLI is a versatile utility designed to simplify common tasks related to
 - **Description**: Quickly set up a frontend for your Mina project using popular frameworks like Next.js and React.js.
 - **Usage**:
   ```bash
-  ./mina-tool.js create-frontend
+  npx mina-maya create-frontend
   ```
 
 ### 2. Check Balance
@@ -17,7 +17,7 @@ The Maya CLI is a versatile utility designed to simplify common tasks related to
 - **Description**: Retrieve the balance associated with a specific Mina account using the Mina Explorer API.
 - **Usage**:
   ```bash
-  ./mina-tool.js check-balance
+  npx mina-maya check-balance
   ```
 
 ### 3. Check Mina
@@ -25,7 +25,7 @@ The Maya CLI is a versatile utility designed to simplify common tasks related to
 - **Description**: Obtain essential data about the Mina blockchain network, such as blockchain length, circulating supply, state hash, chain ID, and total currency.
 - **Usage**:
   ```bash
-  ./mina-tool.js check-mina
+  npx mina-maya check-mina
   ```
 
 ## Prerequisites:
@@ -44,20 +44,15 @@ Before using the Mina Project Command-Line Tool, ensure that you have the follow
    npm install
    ```
 
-3. Make the script executable (if needed):
-   ```bash
-   chmod +x mina-tool.js
-   ```
-
 ## Usage:
 
 To use the tool, run it with one of the specified operations as an argument. For example, to create the frontend, run:
 
 ```bash
-./mina-tool.js create-frontend
+npx mina-maya create-frontend
 ```
 
-Replace `./mina-tool.js` with the path to the script if needed.
+Replace `npx mina-maya` with the path to the script if needed.
 
 If you specify an invalid operation, the script will display a list of available operations.
 
