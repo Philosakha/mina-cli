@@ -46,5 +46,23 @@ export default async function createFrontend() {
         }
       );
       break;
+
+    case "ReactJS":
+      console.log(chalk.magentaBright("ReactJS"));
+      // execute git clone command
+      // execute npm install
+      // execute npm run dev
+      exec(
+        `git clone https://github.com/Philosakha/starter-kit-mina-auro-react ${results2.projectName}`,
+        (err, stdout, stderr) => {
+          if (err) {
+            console.log(chalk.redBright(err));
+            return;
+          }
+          console.log(chalk.greenBright(stdout));
+          console.log(chalk.blueBright(stderr));
+        }
+      );
+      break;
   }
 }
