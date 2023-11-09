@@ -31,9 +31,6 @@ export default async function createFrontend() {
   switch (results.framework) {
     case "NextJS":
       console.log(chalk.magentaBright("NextJS"));
-      // execute git clone command
-      // execute npm install
-      // execute npm run dev
       exec(
         `git clone https://github.com/Philosakha/Starter-kit-mina-Auro-NEXTJS-13  ${results2.projectName}`,
         (err, stdout, stderr) => {
@@ -49,11 +46,10 @@ export default async function createFrontend() {
 
     case "ReactJS":
       console.log(chalk.magentaBright("ReactJS"));
-      // execute git clone command
-      // execute npm install
-      // execute npm run dev
       exec(
-        `git clone https://github.com/Philosakha/starter-kit-mina-auro-react ${results2.projectName}`,
+        `git clone https://github.com/Philosakha/starter-kit-mina-auro-react ${results2.projectName} 
+        && cd ${results2.projectName}
+        `,
         (err, stdout, stderr) => {
           if (err) {
             console.log(chalk.redBright(err));
