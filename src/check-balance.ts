@@ -2,6 +2,7 @@ import chalk from "chalk";
 
 // @ts-ignore
 import inquirer from "inquirer";
+import loading from "loading-cli";
 
 interface minaAccountsData {
   account: {
@@ -28,9 +29,14 @@ export default async function checkBalance() {
     },
   ];
 
+  const dummyAddress =
+    "B62qp95jhpNec4Cex77dkbPTCQ6zNwuKBYNPrWjaK1Dt6nfCr5boobN";
+
   const answers = await inquirer.prompt(questions);
 
-  console.log(chalk.green(`Checking balance for ${answers.publicKey}...`));
+  const load = loading("Checking balance").start();
+
+  // make a loader in terminal
 
   let headersList = {
     Accept: "*/*",
@@ -45,7 +51,8 @@ export default async function checkBalance() {
   );
 
   let data = await response.text();
-  //   console.log(data);
+
+  load.stop();
 
   let dataJSON = JSON.parse(data) as minaAccountsData;
   let balance = Number(dataJSON.account.balance.total) / 1000000000;
