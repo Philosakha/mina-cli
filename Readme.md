@@ -41,8 +41,22 @@ Before using the Mina Project Command-Line Tool, ensure that you have the follow
 2. Install project dependencies by running the following command in the project's directory:
 
    ```bash
-   npm install
+   yarn install
    ```
+
+3. Run the script using the following command:
+
+   ```bash
+   yarn start <operation>
+   ```
+
+4. For building the script, run the following command:
+
+   ```bash
+   yarn build
+   ```
+
+   The script will be built in the `dist` directory.
 
 ## Usage:
 
