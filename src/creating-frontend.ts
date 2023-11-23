@@ -47,7 +47,7 @@ export default async function createFrontend() {
     case "ReactJS":
       console.log(chalk.magentaBright("ReactJS"));
       exec(
-        `git clone https://github.com/Philosakha/starter-kit-mina-auro-react ${results2.projectName} 
+        `git clone https://github.com/Philosakha/starter-kit-mina-auro-react ${results2.projectName}
         && cd ${results2.projectName}
         `,
         (err, stdout, stderr) => {

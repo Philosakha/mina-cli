@@ -12,7 +12,6 @@ const availableOptions: string[] = [
   "create-frontend",
   "check-balance",
   "check-mina",
-  "check-tokens",
 ];
 
 // second argument should be the selected option
@@ -44,4 +43,11 @@ switch (option) {
     console.log(chalk.green("Checking on Mina..."));
     checkMina();
     break;
+  default:
+    console.log(
+      chalk.red(
+        `Invalid operation. Available operations are: ${availableOptions}`
+      )
+    );
+    process.exit(-1);
 }
