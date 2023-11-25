@@ -2,6 +2,7 @@ import chalk from "chalk";
 
 // @ts-ignore
 import inquirer from "inquirer";
+import loading from "loading-cli";
 
 interface minaData {
   blockchainLength: number;
@@ -31,11 +32,14 @@ export default async function checkMina() {
 
   const answers = await inquirer.prompt(questions);
 
+  const load = loading("Checking Mina").start();
+
   const { data } = answers;
 
   const response = await fetch(url);
 
   const mina = (await response.json()) as minaData;
+  load.stop();
 
   switch (data) {
     case "blockchain length":
