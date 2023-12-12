@@ -1,7 +1,6 @@
 import chalk from "chalk";
 // @ts-ignore
 import inquirer from "inquirer";
-import loading from "loading-cli";
 export default async function checkMina() {
     const url = "https://api.minaexplorer.com/summary";
     const questions = [
@@ -19,11 +18,9 @@ export default async function checkMina() {
         },
     ];
     const answers = await inquirer.prompt(questions);
-    const load = loading("Checking Mina").start();
     const { data } = answers;
     const response = await fetch(url);
     const mina = (await response.json());
-    load.stop();
     switch (data) {
         case "blockchain length":
             console.log(chalk.green(`Blockchain length: ${mina.blockchainLength}`));

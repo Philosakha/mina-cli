@@ -1,4 +1,4 @@
-#!/usr/bin/env -S ts-node --files
+#!/usr/bin/env node
 import chalk from "chalk";
 // @ts-ignore
 // const figlet = require('figlet');

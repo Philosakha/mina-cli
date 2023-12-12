@@ -1,8 +1,4 @@
 {
-  "extends": "ts-node/node16/tsconfig.json",
-  "ts-node": {
-    "files": true
-  },
   "compilerOptions": {
     "target": "es2022",
     "lib": ["ES2022", "es2017", "dom"],
@@ -17,7 +13,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "outDir": "bin"
+    "outDir": "dist"
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
 }
