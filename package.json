@@ -2,12 +2,13 @@
   "name": "mina-maya",
   "version": "0.0.5",
   "description": "CLI tool for interacting with Mina ecosystem",
-  "main": "./dist/index.js",
+  "main": "bin/index.js",
   "type": "module",
   "scripts": {
     "start": "ts-node --esm src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc"
+    "build": "rm -rf bin && npx tsc",
+    "watch": "tsc -w"
   },
   "homepage": "",
   "repository": {
@@ -41,6 +42,6 @@
     "url": "https://github.com/Philosakha/mina-cli/issues"
   },
   "bin": {
-    "mina-maya": "./dist/index.js"
+    "mina-maya": "./bin/index.js"
   }
 }
