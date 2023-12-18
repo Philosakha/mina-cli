@@ -52,6 +52,8 @@ export default async function checkBalance() {
 
   let data = await response.text();
 
+  console.log(data);
+
   load.stop();
 
   let dataJSON = JSON.parse(data) as minaAccountsData;
