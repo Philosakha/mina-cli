@@ -1,5 +1,5 @@
 import chalk from "chalk";
-
+import Table from "cli-table";
 // @ts-ignore
 import inquirer from "inquirer";
 import loading from "loading-cli";
@@ -52,14 +52,32 @@ export default async function checkBalance() {
 
   let data = await response.text();
 
-  console.log(data);
-
   load.stop();
 
   let dataJSON = JSON.parse(data) as minaAccountsData;
   let balance = Number(dataJSON.account.balance.total) / 1000000000;
+  let totalBalance = Number(dataJSON.account.balance.total) / 1000000000;
+  let lockedBalance =
+    Number(dataJSON.account.balance.lockedBalnce) / 1000000000;
+
+  if (!lockedBalance) {
+    lockedBalance = 0;
+  }
 
   console.log(
     chalk.green(`Balance for ${answers.publicKey} is ${balance} Mina`)
   );
+
+  let table = new Table({
+    head: ["Balance", "Total", "Locked"],
+    colWidths: [20, 20, 20],
+  });
+
+  table.push([
+    chalk.green(`${balance} Mina`),
+    chalk.green(`${totalBalance} Mina`),
+    chalk.green(`${lockedBalance} Mina`),
+  ]);
+
+  console.log(table.toString());
 }
