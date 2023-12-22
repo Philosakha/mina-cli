@@ -1,5 +1,5 @@
 import chalk from "chalk";
-
+import Table from "cli-table";
 // @ts-ignore
 import inquirer from "inquirer";
 import loading from "loading-cli";
@@ -21,6 +21,7 @@ export default async function checkMina() {
       message: "What data do you want to check?",
       type: "list",
       choices: [
+        "everything",
         "blockchain length",
         "circulating supply",
         "state hash",
@@ -39,9 +40,26 @@ export default async function checkMina() {
   const response = await fetch(url);
 
   const mina = (await response.json()) as minaData;
+
   load.stop();
 
+  const table = new Table({
+    head: ["Metric", "Value"],
+    colWidths: [30, 80],
+  });
+
+  table.push(
+    ["Blockchain length", String(mina.blockchainLength)],
+    ["Circulating supply", String(mina.circulatingSupply)],
+    ["State hash", mina.stateHash],
+    ["Chain id", mina.chainId],
+    ["Total currency", String(mina.totalCurrency)]
+  );
+
   switch (data) {
+    case "everything":
+      console.log(chalk.green(table.toString()));
+      break;
     case "blockchain length":
       console.log(chalk.green(`Blockchain length: ${mina.blockchainLength}`));
       break;
