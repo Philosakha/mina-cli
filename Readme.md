@@ -24,8 +24,21 @@ The Maya CLI is a versatile utility designed to simplify common tasks related to
 
 - **Description**: Obtain essential data about the Mina blockchain network, such as blockchain length, circulating supply, state hash, chain ID, and total currency.
 - **Usage**:
+
   ```bash
   npx mina-maya check-mina
+  ```
+
+- **Example Output**:
+
+  ```bash
+  Metric           Value
+  ---------------  ------------------------------------
+  Blockchain       1,000,000
+  Circulating      1,000,000
+  State Hash       3NLES4Ho75Pv7DRCbNPUpjyzGCC4M69ssoeUsVJgnqoR4DR7v2du
+  Chain id         5f704cc0c82e0ed70e873f0893d7e06f148524e3f0bdae2afb02e7819a0c24d1
+  Total currency   1107082252.840039233
   ```
 
 ## Prerequisites:
