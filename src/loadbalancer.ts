@@ -12,3 +12,18 @@ async function loadBalancer(endpoints: string[]) {
     return endpoint;
   };
 }
+
+async function main() {
+  const loadBalancer = await loadBalancer([
+    "https://api.minaexplorer.com/summary",
+    "https://api.minaexplorer.com/summary",
+  ]);
+
+  const url = loadBalancer();
+
+  const response = await fetch(url);
+
+  const mina = (await response.json()) as minaData;
+
+  console.log(mina);
+}
